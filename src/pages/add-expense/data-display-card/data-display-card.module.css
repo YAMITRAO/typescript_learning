@@ -1,0 +1,9 @@
+.display_card{
+  /* background-color: #ae5a5a; */
+  background-color: inherit;
+  padding:0px 5px;
+  box-shadow: -1px 1px 1px white;
+  color: rgba(221,221,221);
+  border-radius: 3px;
+  font-size: 14px;
+}

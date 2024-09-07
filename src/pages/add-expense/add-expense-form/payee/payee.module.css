@@ -1,0 +1,22 @@
+.payee_container{
+  border: 1px solid rgb(221,221,221);
+  width:96%;
+  border-radius: 4px;
+  padding:10px;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  font-family: monospace;
+}
+
+.payee_heading{
+  /* border: 2px solid red; */
+  width:90%;
+  font-size: 18px;
+  color: #e63946 ;
+  display: flex;
+  gap:0.3rem;
+  align-items: center;
+}
