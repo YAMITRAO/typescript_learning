@@ -1,0 +1,13 @@
+.dashboard_data_container{
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  width: 100%;
+  padding:10px;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:2.5rem;
+
+  margin-top: 20px;
+}

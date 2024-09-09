@@ -3,9 +3,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/nav-bar/NavBar'
 import AddExpense from './pages/add-expense/AddExpense'
+import Dashboard from './pages/dashboard/Dashboard'
+// import { useContext } from 'react'
+// import DataContext from './context/DataContext'
 
 
 function App() {
+
+  
    const router = createBrowserRouter([
     {
       path: "/",
@@ -13,7 +18,7 @@ function App() {
     },
     {
       path:"/dashboard",
-      element: <NavBar/>
+      element: <Dashboard/>
     },
     {
       path:"/navbar",

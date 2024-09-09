@@ -1,11 +1,17 @@
-import { useState } from "react"
+
 import style from "./payer.module.css"
 import DataDisplayCard from "../../data-display-card/DataDisplayCard"
 
-const Payer:React.FC = () => {
-  let payerApiData:string[] = ["User1", "User2", "User3", 'User4', "User5", ]
+interface MyComponentProps {
+  payer:string
+  setPayer: React.Dispatch<React.SetStateAction<string>>;
+  users: string[],
+}
 
-  const [payer, setPayer] = useState("")
+const Payer:React.FC<MyComponentProps> = ({payer,setPayer, users}) => {
+  let payerApiData:string[] = users;
+
+
   return (
     <div className={style.payer_container}>
        <div className={style.payer_heading}>
@@ -14,8 +20,8 @@ const Payer:React.FC = () => {
         </div>
       <div className={style.payers_div}>
 
-        {payerApiData.map((val)=> {
-          return  <div className={style.payer_user_div}
+        {payerApiData.map((val, index)=> {
+          return  <div key={index*Math.random()*20} className={style.payer_user_div}
           onClick={(e: React.MouseEvent<HTMLElement>)=> {
             let value = e.target as HTMLElement
             setPayer(value.innerText)
