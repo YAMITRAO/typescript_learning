@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-interface DataContext_Int {
+export interface DataContext_Int {
   totalPayer: string[];
 }
 

@@ -5,6 +5,7 @@ import DataDisplayCard from "../../data-display-card/DataDisplayCard"
 interface MyComponentProps{
   spentAmount:string,
   setSpentAmount: React.Dispatch<React.SetStateAction<string>>
+ 
 }
 
 const SpentAmount: React.FC<MyComponentProps> = ({spentAmount, setSpentAmount}) => {

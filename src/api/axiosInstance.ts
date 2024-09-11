@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const baseURL = "https://crudcrud.com/api/be0e285c4c994ee1bd22cd9113bc9a91";
+// const baseURL = process.env.BASE_URL;
+// const baseURL = import.meta.env.BASE_URL;
+const baseURL = "https://crudcrud.com/api/aa0d6cec0e6a4f9fa22bf128b102d1b7";
 
 export default axios.create({
   baseURL: baseURL,
