@@ -1,43 +1,44 @@
-.puspose_container{
-  border: 1px solid rgb(221,221,221);
-  width:96%;
+.puspose_container {
+  border: 1px solid rgb(221, 221, 221);
+  box-sizing: border-box;
+  width: 96%;
   box-sizing: border-box;
   border-radius: 4px;
-  padding:5px;
+  padding: 5px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:0.4rem;
+  gap: 0.4rem;
 
   font-family: monospace;
-  color: rgb(221,221,221)
+  color: rgb(221, 221, 221);
 }
 
-.purpose_heading{
+.purpose_heading {
   /* border: 2px solid red; */
-  width:90%;
+  width: 90%;
   font-size: 18px;
   color: #d4a373;
 }
 
-.purpose_input_div{
+.purpose_input_div {
   /* border: 2px solid red; */
   width: 90%;
 }
 
-.purpose_input_div input{
-  height:30px;
+.purpose_input_div input {
+  height: 30px;
   width: 100%;
   background-color: inherit;
-  border: 1px solid rgb(221,221,221);
+  border: 1px solid rgb(221, 221, 221);
   font-size: 14px;
-  color:inherit;
+  color: inherit;
   text-indent: 8px;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 
-.purpose_input_div input:focus{
+.purpose_input_div input:focus {
   outline: none;
 }
