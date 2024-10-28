@@ -1,11 +1,10 @@
-// import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
-import NavBar from "./components/nav-bar/NavBar";
 import AddExpense from "./pages/add-expense/AddExpense";
 import Dashboard from "./pages/dashboard/Dashboard";
-// import { useContext } from 'react'
-// import DataContext from './context/DataContext'
+import Admin from "./pages/admin/admin";
+
+import "./App.css";
+import UserView from "./pages/user-view/userView";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,8 +17,12 @@ function App() {
       element: <Dashboard />,
     },
     {
-      path: "/navbar",
-      element: <NavBar />,
+      path: "/dashboard/:id",
+      element: <UserView />,
+    },
+    {
+      path: "/admin",
+      element: <Admin />,
     },
   ]);
 

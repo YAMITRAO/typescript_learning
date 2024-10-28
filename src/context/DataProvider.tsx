@@ -1,20 +1,45 @@
-import DataContext,{DataContext_Int }from "./DataContext"
+import { useReducer } from "react";
+import DataContext, { InitialState_Context } from "./DataContext";
 
-interface MyComponentProps{
-  children: React.ReactNode
+interface MyComponentProps {
+  children: React.ReactNode;
 }
 
+interface Action {
+  type: String;
+  data: [] | {};
+}
 
+const DataProvider: React.FC<MyComponentProps> = ({ children }) => {
+  // let initialValue: InitialState_Context = {
+  //   totalPayer: [],
+  // };
 
-const DataProvider:React.FC<MyComponentProps> = ({children}) => {
-  let value: DataContext_Int = {
-    totalPayer: ["user1", "user2", "user3", "user4"],
+  let initialValue: InitialState_Context = {
+    totalPayer: [],
+  };
+
+  function reducerFun(
+    state: InitialState_Context,
+    action: Action
+  ): InitialState_Context {
+    console.log("action is :=", action);
+    switch (action.type) {
+      case "UPDATE_TOTAL_PAYER":
+        if (Array.isArray(action.data)) {
+          return { ...state, totalPayer: action.data };
+        }
+    }
+    return state;
   }
+
+  const [state, dispatch] = useReducer(reducerFun, initialValue);
+
   return (
-    <DataContext.Provider value={value}>
+    <DataContext.Provider value={{ state, dispatch }}>
       {children}
     </DataContext.Provider>
-  )
-}
+  );
+};
 
-export default DataProvider
+export default DataProvider;

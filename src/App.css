@@ -1,6 +1,15 @@
 /* @import "./variables.css"; */
 
-body{
+body {
   background-color: var(--background-color);
   color: var(--textcolor);
+}
+
+.activeSelect {
+  background-color: rgb(9, 91, 9) !important;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

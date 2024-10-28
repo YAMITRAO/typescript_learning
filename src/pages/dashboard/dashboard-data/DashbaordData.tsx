@@ -1,42 +1,43 @@
-import { useContext, useEffect, useState } from "react"
-import style from "./dashboard-data.module.css"
-import DashboardCard from "./dashboard_card/DashboardCard"
-import DataContext from "../../../context/DataContext"
-import axiosInstance from "../../../api/axiosInstance"
+import { useContext, useEffect, useState } from "react";
+import style from "./dashboard-data.module.css";
+import DashboardCard from "./dashboard_card/DashboardCard";
+import axiosInstance from "../../../api/axiosInstance";
+import { mappedValue } from "../../add-expense/add-expense-form/AddExpenseForm";
 
 const DashboardData = () => {
   // let userData:object[] = [];
-  const [userData, setUserData] = useState([])
-  let state = useContext(DataContext);
+  const [userApiData, setUserApiData] = useState<mappedValue[]>([]);
 
-  console.log(userData);
-
-  const allUserData_API = async() => {
-
-    let getApi_promises =  state.totalPayer.map((val)=> {
-      return axiosInstance.get(`${val}`)
-  })
-  try{
-    let promises_response = await Promise.all(getApi_promises);
-    // setUserData(promises_response)
-    console.log("Get response data is :- ",promises_response);
-    
-  }catch(e){
-    console.log("Error", e)
-  }
-   }
-
-  useEffect(()=> {
-   allUserData_API();
-  }, [])
-
+  useEffect(() => {
+    axiosInstance("/")
+      .then((res) => {
+        console.log("res data", res.data);
+        setUserApiData(res.data);
+      })
+      .catch((err) => console.log("Error", err));
+  }, []);
 
   return (
     <div className={style.dashboard_data_container}>
-      {userData.map((val, index)=> <DashboardCard key={index*Math.random()*10} amount={300} userName={"test user"} css={ {boxShadow:`0px 0px 10px #ff9f1c`}} />)}
+      {userApiData.map((val, index) => {
+        console.log("val of map is:-", val.transactions);
+        let amount = val.transactions.reduce((total, el) => {
+          return total + el.amount;
+        }, 0);
+        console.log(amount);
+        return (
+          <DashboardCard
+            key={index * Math.random() * 10}
+            amount={Number(amount.toFixed(2))}
+            userName={val.name}
+            css={{ boxShadow: `0px 0px 10px #ff9f1c` }}
+            id={val._id}
+          />
+        );
+      })}
       {/* <DashboardCard amount={300} userName={"test user"} css={ {boxShadow:`0px 0px 10px #ff9f1c`}} /> */}
     </div>
-  )
-}
+  );
+};
 
-export default DashboardData
+export default DashboardData;

@@ -1,13 +1,15 @@
 import { createContext } from "react";
 
-export interface DataContext_Int {
-  totalPayer: string[];
+export interface InitialState_Context {
+  totalPayer: {}[];
 }
 
-let initialState: DataContext_Int = {
+const state: InitialState_Context = {
   totalPayer: [],
 };
 
-const DataContext = createContext(initialState);
+const dispatch: Function = () => {};
+
+const DataContext = createContext({ state, dispatch });
 
 export default DataContext;

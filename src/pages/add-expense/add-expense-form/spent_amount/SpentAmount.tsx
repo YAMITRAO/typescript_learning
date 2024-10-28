@@ -26,6 +26,7 @@ const SpentAmount: React.FC<MyComponentProps> = ({
         placeholder="Enter spent amount"
         value={spentAmount}
         onChange={(e) => setSpentAmount(e.target.value)}
+        required
       />
 
       <div className={style.expense_amount_suggestions}>

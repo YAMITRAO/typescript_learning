@@ -1,0 +1,43 @@
+.user_history_container {
+  margin-top: 20px;
+  /* overflow: hidden; */
+}
+
+.dataTable {
+  width: 100%;
+}
+
+.dataTable > thead > tr {
+  background-color: rgb(206, 194, 194);
+  color: black;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.dataTable > tbody > tr:nth-child(odd) {
+  /* background-color: rgb(62, 70, 70); */
+  background-color: rgba(216, 213, 212, 0.7);
+  color: black;
+  font-family: monospace;
+  font-size: 18px;
+}
+.dataTable > tbody > tr:nth-child(even) {
+  background-color: rgba(63, 62, 62, 0.6);
+  font-family: monospace;
+  font-size: 18px;
+}
+
+.dataTable > tbody > tr > td {
+  text-align: center;
+  /* border: 2px solid white; */
+}
+
+.payeeTd {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 8px 4px;
+}
